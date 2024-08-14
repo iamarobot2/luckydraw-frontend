@@ -16,7 +16,7 @@ function StudentForm({ onSubmit }) {
     e.preventDefault();
 
     if (formData.name && formData.phone && formData.semester && formData.branch) {
-      const response = await fetch('http://localhost:4500/api/register', {
+      const response = await fetch('https://luckydraw-backend.onrender.com/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

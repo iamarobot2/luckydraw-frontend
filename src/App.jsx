@@ -15,7 +15,7 @@ function App() {
   };
 
   const handleQRScan = async (scannedData) => {
-    const response = await fetch('http://localhost:4500/api/scan', {
+    const response = await fetch('https://luckydraw-backend.onrender.com/api/scan', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

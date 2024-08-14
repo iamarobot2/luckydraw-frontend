@@ -4,7 +4,7 @@ function DisplayQRCode() {
   return (
     <div>
       <h2>Scan this QR code:</h2>
-      <QRCode value="http://localhost:4500/scan" />
+      <QRCode value="https://luckydraw-backend.onrender.com/scan" />
     </div>
   );
 }
