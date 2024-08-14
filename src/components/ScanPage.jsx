@@ -5,8 +5,10 @@ function ScanPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Generate a random number between 1 and 300
     const randomNumber = Math.floor(Math.random() * 300) + 1;
 
+    // Function to send the random number to the backend
     const sendRandomNumber = async () => {
       try {
         const response = await fetch('https://luckydraw-backend.onrender.com/api/scan', {
@@ -24,6 +26,7 @@ function ScanPage() {
           alert('Sorry! You did not win this time.');
         }
 
+        // Redirect back to the home page
         navigate('/');
       } catch (error) {
         console.error('Error scanning QR code:', error);
