@@ -1,0 +1,43 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function ScanPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * 300) + 1;
+
+    const sendRandomNumber = async () => {
+      try {
+        const response = await fetch('http://localhost:4500/api/scan', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ qrData: randomNumber.toString() }),
+        });
+
+        const resultData = await response.json();
+        if (resultData.winner) {
+          alert('Congratulations! You have won a 100 rupees food coupon.');
+        } else {
+          alert('Sorry! You did not win this time.');
+        }
+
+        navigate('/');
+      } catch (error) {
+        console.error('Error scanning QR code:', error);
+      }
+    };
+
+    sendRandomNumber();
+  }, [navigate]);
+
+  return (
+    <div>
+      <h2>Processing your scan...</h2>
+    </div>
+  );
+}
+
+export default ScanPage;
